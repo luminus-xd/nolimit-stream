@@ -1,4 +1,6 @@
 ---
+import { ViewTransitions } from "astro:transitions";
+
 interface Props {
     title: string;
 }
@@ -14,46 +16,50 @@ const { title } = Astro.props;
         <meta name="viewport" content="width=device-width" />
         <link rel="icon" type="image/png" href="/favicon.png" />
         <meta name="generator" content={Astro.generator} />
-        <meta name="theme-color" content="#111111" />
-        <meta name="msapplication-TileColor" content="#111111" />
+        <meta name="theme-color" content="#0e1014" />
+        <meta name="msapplication-TileColor" content="#0e1014" />
         <link rel="apple-touch-icon" href="/assets/icons/pwa-192x192.png" />
         <link
             rel="manifest"
             href="/manifest.webmanifest"
             crossorigin="use-credentials"
         />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
+            rel="stylesheet"
+        />
         <title>{title}</title>
+        <ViewTransitions />
     </head>
     <body>
         <slot />
+        <style is:global>
+            :root {
+                --font-family: "Inter", system-ui, sans-serif;
+                --primary-dark: #0e1014;
+                --primary-white: #ebecef;
+                --text-color: var(--primary-dark);
+                --bg-color: var(--primary-white);
+            }
+            @media (prefers-color-scheme: dark) {
+                :root {
+                    --text-color: var(--primary-white);
+                    --bg-color: var(--primary-dark);
+                }
+            }
+            html {
+                font-family: var(--font-family);
+                background-color: var(--bg-color);
+                background-size: 224px;
+                font-size: 62.5%;
+            }
+            body {
+                color: var(--text-color);
+                margin: 0;
+                font-size: 1.6rem;
+            }
+        </style>
     </body>
 </html>
-<style is:global>
-    :root {
-        --accent: 136, 58, 234;
-        --accent-light: 224, 204, 250;
-        --accent-dark: 49, 10, 101;
-        --accent-gradient: linear-gradient(
-            45deg,
-            rgb(var(--accent)),
-            rgb(var(--accent-light)) 30%,
-            white 60%
-        );
-    }
-    html {
-        font-family: system-ui, sans-serif;
-        background: #13151a;
-        background-size: 224px;
-    }
-    code {
-        font-family:
-            Menlo,
-            Monaco,
-            Lucida Console,
-            Liberation Mono,
-            DejaVu Sans Mono,
-            Bitstream Vera Sans Mono,
-            Courier New,
-            monospace;
-    }
-</style>

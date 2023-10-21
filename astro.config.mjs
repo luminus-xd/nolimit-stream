@@ -11,7 +11,7 @@ export default defineConfig({
                 name: "NoLimit Stream",
                 short_name: "NoLimit Stream",
                 description: "NoLimit Stream",
-                theme_color: "#111111",
+                theme_color: "#0e1014",
                 scope: "/",
                 start_url: "/",
                 icons: [

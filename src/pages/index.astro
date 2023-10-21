@@ -4,27 +4,59 @@ import { fetchStreamersData } from "../libs/streamer";
 
 import Layout from "../layouts/Layout.astro";
 
+import Card from "../components/Card.astro";
+
 const streamData = await fetchStreamersData();
 const streamer = streamData.streamer as Streamer[];
 ---
 
 <Layout title="NOLIMIT Streamer">
     <main>
-        <h1>Hello Astro World</h1>
-        <ul>
-            {streamer.map(item => <li>{item.name}</li>)}
-        </ul>
+        <section>
+            <h1 class="heading-1">Hello <span>NOLIMIT.</span></h1>
+            <ul>
+                {streamer.map(person => <Card {...person}>{person.name}</Card>)}
+            </ul>
+        </section>
     </main>
 </Layout>
 
 <style>
+    .heading-1 {
+        letter-spacing: -0.08rem;
+        font-size: 3em;
+        font-weight: 700;
+        margin: 0;
+        line-height: 1.12;
+    }
+    .heading-1 span {
+        background: -webkit-linear-gradient(238deg, #ffb457, #ff705b, #ff47d1);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        opacity: 0;
+        animation: fadeIn 420ms cubic-bezier(0, 0.47, 0.71, 0.82) 500ms forwards;
+    }
     main {
         margin: auto;
-        padding: 1rem;
+        padding: 24px;
         width: 800px;
         max-width: calc(100% - 2rem);
-        color: white;
         font-size: 20px;
         line-height: 1.6;
+    }
+    ul {
+        display: grid;
+        margin: 48px 0 0 0;
+        padding: 0;
+        list-style: none;
+        gap: 24px 32px;
+    }
+    @keyframes fadeIn {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
     }
 </style>

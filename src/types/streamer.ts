@@ -4,9 +4,7 @@
 export type Streamer = {
     name: string;
     stgrName: string;
-    twitch: {
-        id: string;
-    };
+    twitchId: string;
 };
 
 /**
