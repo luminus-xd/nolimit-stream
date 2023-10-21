@@ -11,17 +11,52 @@ const streamer = streamData.streamer as Streamer[];
 ---
 
 <Layout title="NOLIMIT Streamer">
-    <main>
-        <section>
-            <h1 class="heading-1">Hello <span>NOLIMIT.</span></h1>
-            <ul>
-                {streamer.map(person => <Card {...person}>{person.name}</Card>)}
-            </ul>
-        </section>
-    </main>
+    <div class="container">
+        <main>
+            <section>
+                <h1 class="heading-1">Hello <span>NOLIMIT.</span></h1>
+                <ul>
+                    {
+                        streamer.map(person => (
+                            <Card {...person}>{person.name}</Card>
+                        ))
+                    }
+                </ul>
+            </section>
+            <div class="bg-overlay">
+                <img
+                    src="https://nolimit.imgix.net/bg-right.png?auto=format&fit=max&w=1260&h=1248"
+                    alt=""
+                    width="1260"
+                    height="1248"
+                    loading="lazy"
+                />
+            </div>
+        </main>
+    </div>
 </Layout>
 
 <style>
+    main {
+        display: grid;
+        margin: auto;
+        font-size: 20px;
+        line-height: 1.6;
+    }
+    ul {
+        display: grid;
+        margin: 48px 0 0 0;
+        padding: 0;
+        list-style: none;
+        gap: 24px 32px;
+    }
+    .container {
+        display: grid;
+        place-items: center;
+        width: 860px;
+        max-width: 100%;
+        overflow: hidden;
+    }
     .heading-1 {
         letter-spacing: -0.08rem;
         font-size: 3em;
@@ -36,20 +71,19 @@ const streamer = streamData.streamer as Streamer[];
         opacity: 0;
         animation: fadeIn 420ms cubic-bezier(0, 0.47, 0.71, 0.82) 500ms forwards;
     }
-    main {
-        margin: auto;
-        padding: 24px;
-        width: 800px;
-        max-width: calc(100% - 2rem);
-        font-size: 20px;
-        line-height: 1.6;
+    .bg-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        transform: rotate(291deg) translate(-34%, 32%);
     }
-    ul {
-        display: grid;
-        margin: 48px 0 0 0;
-        padding: 0;
-        list-style: none;
-        gap: 24px 32px;
+    @media screen and (max-width: 768px) {
+        .bg-overlay {
+            bottom: -50%;
+            top: auto;
+            transform: rotate(98deg) translate(21%, 17%);
+        }
     }
     @keyframes fadeIn {
         0% {
