@@ -7,6 +7,7 @@
         "start": "astro dev",
         "build": "astro build",
         "preview": "astro preview",
+        "publish": "wrangler pages publish dist",
         "astro": "astro",
         "format": "prettier --write ."
     },
