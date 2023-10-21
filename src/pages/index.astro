@@ -1,11 +1,19 @@
 ---
+import type { Streamer } from "../types/streamer";
+import { fetchStreamersData } from "../libs/streamer";
+
 import Layout from "../layouts/Layout.astro";
-import Card from "../components/Card.astro";
+
+const streamData = await fetchStreamersData();
+const streamer = streamData.streamer as Streamer[];
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout title="NOLIMIT Streamer">
     <main>
         <h1>Hello Astro World</h1>
+        <ul>
+            {streamer.map(item => <li>{item.name}</li>)}
+        </ul>
     </main>
 </Layout>
 
