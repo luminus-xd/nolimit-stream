@@ -5,11 +5,12 @@
     "scripts": {
         "dev": "astro dev",
         "start": "astro dev",
+        "prebuild": "prettier --write . --plugin=prettier-plugin-astro",
         "build": "astro build",
         "preview": "astro preview",
         "pub-pages": "wrangler pages publish dist",
         "astro": "astro",
-        "format": "prettier --write ."
+        "format": "prettier --write . --plugin=prettier-plugin-astro"
     },
     "devDependencies": {
         "@vite-pwa/astro": "^0.1.3",

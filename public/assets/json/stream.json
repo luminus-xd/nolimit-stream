@@ -1,0 +1,53 @@
+{
+    "streamer": [
+        {
+            "name": "ファン太",
+            "stgrName": "四皇 シャンクズ",
+            "twitch": {
+                "id": "fantasista_jp"
+            }
+        },
+        {
+            "name": "けっつん",
+            "stgrName": "けっつん 太郎",
+            "twitch": {
+                "id": "kettuncyukyuhei"
+            }
+        },
+        {
+            "name": "Ottki",
+            "stgrName": "Albert Pondering（AP）",
+            "twitch": {
+                "id": "ottiki"
+            }
+        },
+        {
+            "name": "宙星ぱる",
+            "stgrName": "丘猫 まる",
+            "twitch": {
+                "id": "soraposhich"
+            }
+        },
+        {
+            "name": "かしわねこ",
+            "stgrName": "ようち えんじ(パス ヒソカ)",
+            "twitch": {
+                "id": "kashi_neko"
+            }
+        },
+        {
+            "name": "Sirry",
+            "stgrName": "しょうがく SAY（パス トバリ）",
+            "twitch": {
+                "id": "sirry_twich"
+            }
+        },
+        {
+            "name": "ゆくちょび",
+            "stgrName": "チョビ髭 原人",
+            "twitch": {
+                "id": "thetyoby"
+            }
+        }
+    ]
+}
