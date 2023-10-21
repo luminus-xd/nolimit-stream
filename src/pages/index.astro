@@ -39,6 +39,7 @@ const streamer = streamData.streamer as Streamer[];
 <style>
     main {
         display: grid;
+        width: 100%;
         margin: auto;
         font-size: 20px;
         line-height: 1.6;
@@ -52,10 +53,12 @@ const streamer = streamData.streamer as Streamer[];
     }
     .container {
         display: grid;
-        place-items: center;
         width: 860px;
+        min-height: 100svh;
         max-width: 100%;
+        margin-inline: auto;
         overflow: hidden;
+        align-content: baseline;
     }
     .heading-1 {
         letter-spacing: -0.08rem;
@@ -73,16 +76,16 @@ const streamer = streamData.streamer as Streamer[];
     }
     .bg-overlay {
         position: fixed;
-        top: 0;
-        left: 0;
+        bottom: calc(-50% - 133px);
+        left: 34%;
         z-index: -1;
-        transform: rotate(291deg) translate(-34%, 32%);
+        transform: rotate(291deg);
     }
     @media screen and (max-width: 768px) {
         .bg-overlay {
-            bottom: -50%;
-            top: auto;
-            transform: rotate(98deg) translate(21%, 17%);
+            left: -30vw;
+            top: 44%;
+            transform: rotate(98deg);
         }
     }
     @keyframes fadeIn {
