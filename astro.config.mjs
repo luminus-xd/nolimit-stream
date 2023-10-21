@@ -4,7 +4,6 @@ import robotsTxt from "astro-robots-txt";
 
 export default defineConfig({
     site: "https://nolimit.pages.dev/",
-
     integrations: [
         robotsTxt(),
         AstroPWA({
@@ -12,7 +11,7 @@ export default defineConfig({
                 name: "NoLimit Stream",
                 short_name: "NoLimit Stream",
                 description: "NoLimit Stream",
-                theme_color: "#ffffff",
+                theme_color: "#111111",
                 scope: "/",
                 start_url: "/",
                 icons: [
@@ -34,6 +33,16 @@ export default defineConfig({
                     {
                         src: "images/icons/icon-144x144.png",
                         sizes: "144x144",
+                        type: "image/png",
+                    },
+                    {
+                        src: "images/icons/icon-152x152.png",
+                        sizes: "152x152",
+                        type: "image/png",
+                    },
+                    {
+                        src: "images/icons/icon-192x192.png",
+                        sizes: "192x192",
                         type: "image/png",
                     },
                     {
