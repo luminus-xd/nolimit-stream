@@ -1,4 +1,6 @@
 ---
+import { Image } from "astro:assets";
+
 interface Props {
     name: string;
     stgrName: string;
@@ -10,14 +12,26 @@ const { name, stgrName, twitchId } = Astro.props;
 
 <li class="link-card">
     <hgroup>
-        <h2>
+        <h2 class="link-card__name">
             {stgrName}
         </h2>
-        <p>{name}</p>
+        <p class="link-card__stream">
+            <span class="link-card__stream-name">
+                {name}
+            </span>
+            <span class="link-card__stream-separator">/</span>
+            <span class="link-card__stream-twitch">
+                <Image
+                    class="link-card__stream-twitch-icon"
+                    src="https://nolimit.imgix.net/logo-twitch-icon.svg?format=auto&h=18&w=18"
+                    alt="Twitch"
+                    width="18"
+                    height="18"
+                />
+                {twitchId}
+            </span>
+        </p>
     </hgroup>
-    <p>
-        {twitchId}
-    </p>
 </li>
 <style>
     .link-card {
@@ -30,9 +44,22 @@ const { name, stgrName, twitchId } = Astro.props;
     .link-card:is(:hover, :focus-within) h2 {
         color: rgb(var(--accent-light));
     }
-    h2 {
+    .link-card__name {
         font-weight: 700;
         margin: 0;
+    }
+    .link-card__stream-separator {
+        display: inline-block;
+        margin: 0 1rem;
+        opacity: 0.6;
+    }
+    .link-card__stream-twitch {
+        display: inline-flex;
+        align-items: center;
+        gap: 0 4px;
+    }
+    .link-card__stream-twitch-icon {
+        transform: translateY(1px);
     }
     p {
         margin: 0;
