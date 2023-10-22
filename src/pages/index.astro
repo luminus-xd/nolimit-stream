@@ -11,6 +11,13 @@ import Card from "../components/Card.astro";
 
 const streamData = await fetchStreamersData();
 const streamer = streamData.streamer as Streamer[];
+
+function extractTwitchIds(streamer: Streamer[]) {
+    return streamer.map(item => item.twitchId).join("/");
+}
+const multiStreamLink = `https://twitchtheater.tv/${extractTwitchIds(
+    streamer
+)}`;
 ---
 
 <Layout title="NOLIMIT Streamer">
@@ -27,7 +34,7 @@ const streamer = streamData.streamer as Streamer[];
                 </ul>
                 <div class="link-btn">
                     <LinkButton
-                        link="https://twitchtheater.tv/fantasista_jp/kettuncyukyuhei/ottiki/soraposhich/kashi_neko/sirry_twich/thetyoby"
+                        link={multiStreamLink}
                         text="複窓で配信を見る"
                         isExternal={true}
                     />
