@@ -64,7 +64,7 @@ const streamer = streamData.streamer as Streamer[];
     }
     .heading-1 {
         letter-spacing: -0.08rem;
-        font-size: 3em;
+        font-size: 4em;
         font-weight: 700;
         margin: 0;
         line-height: 1.12;
@@ -84,6 +84,9 @@ const streamer = streamData.streamer as Streamer[];
         transform: rotate(291deg);
     }
     @media screen and (max-width: 768px) {
+        .heading-1 {
+            font-size: calc(74 / 400 * 100vw);
+        }
         .bg-overlay {
             left: -30vw;
             top: 44%;
