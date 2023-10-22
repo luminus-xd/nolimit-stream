@@ -24,7 +24,7 @@ const multiStreamLink = `https://twitchtheater.tv/${extractTwitchIds(
     <div class="container">
         <main>
             <section>
-                <h1 class="heading-1">Hello <span>NOLIMIT.</span></h1>
+                <h1 class="heading-1">Hello <span>NO LIMIT.</span></h1>
                 <ul class="list">
                     {
                         streamer.map(person => (
@@ -87,6 +87,7 @@ const multiStreamLink = `https://twitchtheater.tv/${extractTwitchIds(
         line-height: 1.12;
     }
     .heading-1 span {
+        display: inline-block;
         background: -webkit-linear-gradient(238deg, #ffb457, #ff705b, #ff47d1);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;

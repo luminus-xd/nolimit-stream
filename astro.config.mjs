@@ -10,10 +10,11 @@ export default defineConfig({
         robotsTxt(),
         AstroPWA({
             manifest: {
-                name: "NoLimit Stream",
-                short_name: "NoLimit Stream",
+                name: "No Limit Stream",
+                short_name: "NoLimit",
                 description: "NoLimit Stream",
-                theme_color: "#0e1014",
+                theme_color: "#0E1014",
+                background_color: "#FEEBE2",
                 scope: "/",
                 start_url: "/",
                 icons: [
