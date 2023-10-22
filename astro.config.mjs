@@ -1,7 +1,9 @@
 import { defineConfig } from "astro/config";
 import AstroPWA from "@vite-pwa/astro";
 import robotsTxt from "astro-robots-txt";
+import compress from "astro-compress";
 
+// https://astro.build/config
 export default defineConfig({
     site: "https://nolimit.pages.dev/",
     integrations: [
@@ -58,5 +60,6 @@ export default defineConfig({
                 ],
             },
         }),
+        compress(),
     ],
 });
