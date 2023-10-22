@@ -7,6 +7,9 @@ interface Props {
 }
 
 const { title } = Astro.props;
+const url = "https://nolimit.stream/";
+const description = "[非公式]ストグラ ギャング「NOLIMIT」の配信一覧";
+const ogAlt = "Hello NOLIMIT.";
 ---
 
 <!doctype html>
@@ -19,6 +22,15 @@ const { title } = Astro.props;
         <meta name="generator" content={Astro.generator} />
         <meta name="theme-color" content="#0e1014" />
         <meta name="msapplication-TileColor" content="#0e1014" />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:url" content={url} />
+        <meta property="og:image" content={`${url}assets/images/ogp.jpg`} />
+        <meta property="og:image:alt" content={ogAlt} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={description} />
+        <meta property="twitter:image:alt" content={ogAlt} />
         <link rel="apple-touch-icon" href="/assets/icons/pwa-192x192.png" />
         <link
             rel="manifest"
@@ -59,6 +71,7 @@ const { title } = Astro.props;
                 margin: 0;
                 padding: 24px;
                 font-size: 1.6rem;
+                font-feature-settings: "palt";
             }
         </style>
     </body>
