@@ -9,6 +9,7 @@ export default defineConfig({
     integrations: [
         robotsTxt(),
         AstroPWA({
+            registerType: "autoUpdate",
             manifest: {
                 name: "No Limit Stream",
                 short_name: "NoLimit",
@@ -58,6 +59,47 @@ export default defineConfig({
                         src: "/assets/icons/icon-512x512.png",
                         sizes: "512x512",
                         type: "image/png",
+                    },
+                ],
+            },
+            workbox: {
+                cleanupOutdatedCaches: true,
+                skipWaiting: true,
+                clientsClaim: true,
+            },
+            ServiceWorker: {
+                runtimeCaching: [
+                    {
+                        urlPattern: /\.(?:png|gif|jpg|jpeg|svg|ico|webp|avif)$/,
+                        handler: "CacheFirst",
+                        options: {
+                            cacheName: "images",
+                            expiration: {
+                                maxEntries: 20,
+                                maxAgeSeconds: 60 * 60 * 24 * 7,
+                            },
+                        },
+                    },
+                    {
+                        urlPattern: /\.(?:js|css)$/,
+                        handler: "StaleWhileRevalidate",
+                        options: {
+                            cacheName: "static-resources",
+                        },
+                    },
+                    {
+                        urlPattern: /\.(?:woff|woff2|ttf|otf|eot)$/,
+                        handler: "StaleWhileRevalidate",
+                        options: {
+                            cacheName: "fonts",
+                        },
+                    },
+                    {
+                        urlPattern: /\.(?:json)$/,
+                        handler: "StaleWhileRevalidate",
+                        options: {
+                            cacheName: "data",
+                        },
                     },
                 ],
             },
