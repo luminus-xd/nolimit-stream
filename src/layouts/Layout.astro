@@ -54,13 +54,18 @@ const ogAlt = "Hello NOLIMIT.";
                 --text-color: var(--primary-dark);
                 --bg-color: var(--primary-white);
                 --border-color: rgb(221, 221, 221);
+                --box-shadow: rgba(149, 157, 165, 0.2) 0 8px 24px;
             }
             @media (prefers-color-scheme: dark) {
                 :root {
                     --text-color: var(--primary-white);
                     --bg-color: var(--primary-dark);
                     --border-color: rgb(34, 34, 34);
+                    --box-shadow: rgba(37, 39, 41, 0.02) 0 12px 24px;
                 }
+            }
+            * {
+                box-sizing: border-box;
             }
             html {
                 font-family: var(--font-family);
@@ -71,7 +76,7 @@ const ogAlt = "Hello NOLIMIT.";
             body {
                 color: var(--text-color);
                 margin: 0;
-                padding: 24px;
+                padding: 0;
                 font-size: 1.6rem;
                 font-feature-settings: "palt";
             }
