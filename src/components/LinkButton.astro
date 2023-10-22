@@ -1,0 +1,77 @@
+---
+import { Image } from "astro:assets";
+
+interface Props {
+    link: string;
+    text: string;
+    isExternal?: string;
+}
+
+const { link, text, isExternal } = Astro.props;
+---
+
+<a href={link} target={isExternal ? "_blank" : "_self"} class="btn">
+    <span>{text}</span>
+    <Image
+        src="https://nolimit.imgix.net/external-link.svg"
+        alt="arrow"
+        width="20"
+        height="20"
+    />
+</a>
+
+<style>
+    .btn {
+        -webkit-tap-highlight-color: transparent;
+        -webkit-appearance: button;
+        width: 100%;
+        min-width: 280px;
+        background-color: #000;
+        background-image: none;
+        color: #fff;
+        cursor: pointer;
+        font-size: 100%;
+        line-height: 1.5;
+        margin: 0;
+        -webkit-mask-image: -webkit-radial-gradient(#000, #fff);
+        padding: 0;
+    }
+    .btn:disabled {
+        cursor: default;
+    }
+    .btn:-moz-focusring {
+        outline: auto;
+    }
+    .btn svg {
+        display: block;
+        vertical-align: middle;
+    }
+    .btn [hidden] {
+        display: none;
+    }
+    .btn {
+        background: linear-gradient(238deg, #ffb457, #ff705b, #ff47d1);
+        border-radius: 999px;
+        box-sizing: border-box;
+        color: #000;
+        display: block;
+        font-weight: bold;
+        overflow: hidden;
+        padding: 3rem 5rem;
+        position: relative;
+        text-transform: uppercase;
+    }
+    .btn span {
+        background: var(--bg-color);
+        border-radius: 999px;
+        color: var(--text-color);
+        display: grid;
+        inset: 5px;
+        place-items: center;
+        position: absolute;
+        transition: background 300ms ease-in-out;
+    }
+    .btn:hover span {
+        background: none;
+    }
+</style>
