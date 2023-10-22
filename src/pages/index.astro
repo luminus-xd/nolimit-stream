@@ -1,4 +1,6 @@
 ---
+import { Image } from "astro:assets";
+
 import type { Streamer } from "../types/streamer";
 import { fetchStreamersData } from "../libs/streamer";
 
@@ -24,12 +26,12 @@ const streamer = streamData.streamer as Streamer[];
                 </ul>
             </section>
             <div class="bg-overlay">
-                <img
+                <Image
                     src="https://nolimit.imgix.net/bg-right.png?auto=format&fit=max&w=1256&h=1248"
                     alt=""
                     width="1256"
                     height="1248"
-                    decoding="async"
+                    loading={"eager"}
                 />
             </div>
         </main>

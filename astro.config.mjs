@@ -5,7 +5,7 @@ import compress from "astro-compress";
 
 // https://astro.build/config
 export default defineConfig({
-    site: "https://nolimit.pages.dev/",
+    site: "https://nolimit.stream/",
     integrations: [
         robotsTxt(),
         AstroPWA({
