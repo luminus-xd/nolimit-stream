@@ -4,7 +4,7 @@ import { Image } from "astro:assets";
 interface Props {
     link: string;
     text: string;
-    isExternal?: string;
+    isExternal?: boolean;
 }
 
 const { link, text, isExternal } = Astro.props;
@@ -12,12 +12,6 @@ const { link, text, isExternal } = Astro.props;
 
 <a href={link} target={isExternal ? "_blank" : "_self"} class="btn">
     <span>{text}</span>
-    <Image
-        src="https://nolimit.imgix.net/external-link.svg"
-        alt="arrow"
-        width="20"
-        height="20"
-    />
 </a>
 
 <style>
@@ -57,7 +51,7 @@ const { link, text, isExternal } = Astro.props;
         display: block;
         font-weight: bold;
         overflow: hidden;
-        padding: 3rem 5rem;
+        padding: 3.2rem 5rem;
         position: relative;
         text-transform: uppercase;
     }
