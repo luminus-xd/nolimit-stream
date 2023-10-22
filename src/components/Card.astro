@@ -37,9 +37,11 @@ const { name, stgrName, twitchId } = Astro.props;
     .link-card {
         color: var(--text-color);
         border: solid 1px var(--border-color);
+        -webkit-backdrop-filter: blur(8px) saturate(1.8);
         backdrop-filter: blur(8px) saturate(1.8);
-        padding: 16px;
+        padding: 12px 16px;
         border-radius: 4px;
+        -webkit-box-shadow: var(--box-shadow);
         box-shadow: var(--box-shadow);
     }
     .link-card:is(:hover, :focus-within) {
