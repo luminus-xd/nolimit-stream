@@ -46,6 +46,7 @@ export default defineConfig({
                         src: "/assets/icons/icon-192x192.png",
                         sizes: "192x192",
                         type: "image/png",
+                        purpose: "any maskable",
                     },
                     {
                         src: "/assets/icons/icon-384x384.png",
