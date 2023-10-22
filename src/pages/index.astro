@@ -6,6 +6,7 @@ import { fetchStreamersData } from "../libs/streamer";
 
 import Layout from "../layouts/Layout.astro";
 
+import Button from "../components/Button.astro";
 import Card from "../components/Card.astro";
 
 const streamData = await fetchStreamersData();
@@ -17,6 +18,7 @@ const streamer = streamData.streamer as Streamer[];
         <main>
             <section>
                 <h1 class="heading-1">Hello <span>NOLIMIT.</span></h1>
+                <Button text="複窓で配信を見る" />
                 <ul class="list">
                     {
                         streamer.map(person => (
@@ -43,7 +45,7 @@ const streamer = streamData.streamer as Streamer[];
         display: grid;
         width: 100%;
         margin: auto;
-        font-size: 20px;
+        font-size: 2rem;
         line-height: 1.6;
     }
     .list {
