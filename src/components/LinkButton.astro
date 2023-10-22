@@ -10,7 +10,12 @@ interface Props {
 const { link, text, isExternal } = Astro.props;
 ---
 
-<a href={link} target={isExternal ? "_blank" : "_self"} class="btn">
+<a
+    href={link}
+    target={isExternal ? "_blank" : "_self"}
+    class="btn"
+    rel={isExternal ? "noopener noreferrer" : null}
+>
     <span>{text}</span>
 </a>
 
@@ -65,7 +70,7 @@ const { link, text, isExternal } = Astro.props;
         position: absolute;
         transition: background 300ms ease-in-out;
     }
-    .btn:hover span {
+    .btn:is(:hover, :focus-within) span {
         background: none;
     }
 </style>

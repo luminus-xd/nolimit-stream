@@ -11,50 +11,64 @@ const { name, stgrName, twitchId } = Astro.props;
 ---
 
 <li class="link-card">
-    <hgroup>
-        <h2 class="link-card__name">
-            {stgrName}
-        </h2>
-        <p class="link-card__stream">
-            <span class="link-card__stream-name">
-                {name}
-            </span>
-            <span class="link-card__stream-separator">/</span>
-            <span class="link-card__stream-twitch">
-                <Image
-                    class="link-card__stream-twitch-icon"
-                    src="https://nolimit.imgix.net/logo-twitch-icon.svg?format=auto&h=18&w=18"
-                    alt="Twitch"
-                    width="18"
-                    height="18"
-                />
-                {twitchId}
-            </span>
-        </p>
-    </hgroup>
+    <a
+        href={`https://www.twitch.tv/${twitchId}`}
+        target="_blank"
+        rel="noopener noreferrer"
+    >
+        <hgroup>
+            <h2 class="link-card__name">
+                {stgrName}
+            </h2>
+            <p class="link-card__stream">
+                <span class="link-card__stream-name">
+                    {name}
+                </span>
+                <span class="link-card__stream-separator">/</span>
+                <span class="link-card__stream-twitch">
+                    <Image
+                        class="link-card__stream-twitch-icon"
+                        src="https://nolimit.imgix.net/logo-twitch-icon.svg?format=auto&h=18&w=18"
+                        alt="Twitch"
+                        width="18"
+                        height="18"
+                    />
+                    {twitchId}
+                </span>
+            </p>
+        </hgroup>
+    </a>
 </li>
 <style>
     .link-card {
+        --twitch-color: #6441a5;
         color: var(--text-color);
         border: solid 1px var(--border-color);
         -webkit-backdrop-filter: blur(8px) saturate(1.8);
         backdrop-filter: blur(8px) saturate(1.8);
-        padding: 12px 16px;
         border-radius: 4px;
         -webkit-box-shadow: var(--box-shadow);
         box-shadow: var(--box-shadow);
+        transition: 300ms ease-out;
     }
     .link-card:is(:hover, :focus-within) {
         background-position: 0;
         background-image: var(--accent-gradient);
+        border-color: var(--twitch-color);
+        box-shadow: none;
     }
-    .link-card:is(:hover, :focus-within) h2 {
-        color: rgb(var(--accent-light));
+    .link-card:is(:hover, :focus-within) .link-card__name {
+        /* color: var(--twitch-color); */
     }
     .link-card__name {
         font-weight: 700;
         margin: 0;
         letter-spacing: -0.016em;
+    }
+    .link-card__stream {
+        display: flex;
+        margin: 0;
+        align-items: center;
     }
     .link-card__stream-separator {
         display: inline-block;
@@ -69,7 +83,13 @@ const { name, stgrName, twitchId } = Astro.props;
     .link-card__stream-twitch-icon {
         transform: translateY(1px);
     }
-    p {
-        margin: 0;
+    a {
+        display: block;
+        width: 100%;
+        height: 100%;
+        padding: 12px 16px;
+        cursor: pointer;
+        color: inherit;
+        text-decoration: none;
     }
 </style>
