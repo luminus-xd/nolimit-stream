@@ -2,6 +2,7 @@ import { defineConfig } from "astro/config";
 import AstroPWA from "@vite-pwa/astro";
 import robotsTxt from "astro-robots-txt";
 import compress from "astro-compress";
+import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
@@ -105,5 +106,6 @@ export default defineConfig({
             },
         }),
         compress(),
+        sitemap()
     ],
 });
